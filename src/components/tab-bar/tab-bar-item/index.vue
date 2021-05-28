@@ -24,6 +24,7 @@ export default {
     },
     methods: {
         itemClick() {
+            if(this.link === this.$route.path) return;
             this.$router.replace(this.link)
         }
     }

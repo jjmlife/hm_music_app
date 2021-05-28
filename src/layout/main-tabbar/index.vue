@@ -4,7 +4,7 @@
         <tab-bar-item v-for="(item) in tabbarData" :key="item.link" :link="item.link">
           <div slot="text">{{item.title}}</div>
           <template v-slot:icon>
-                <van-icon name="sign" size="25"></van-icon>
+                <svg-icon :icon-class="item.icon" class-name="icon" />
           </template>
           <div slot="active-icon">{{item.activeIcon}}</div>
         </tab-bar-item>
@@ -26,31 +26,31 @@ export default {
       tabbarData: [
         {
             title: '发现',
-            icon: '',
+            icon: 'logo',
             activeIcon: '',
             link: '/recommand'
         },
         {
             title: '播客',
-            icon: '',
+            icon: 'boke',
             activeIcon: '',
             link: '/podcast'
         },
         {
             title: '我的',
-            icon: '',
+            icon: 'music',
             activeIcon: '',
             link: '/mine'
         },
         {
             title: 'k歌',
-            icon: '',
+            icon: 'ksong',
             activeIcon: '',
             link: '/ksong'
         },
         {
             title: '云村',
-            icon: '',
+            icon: 'pepole',
             activeIcon: '',
             link: '/cloud'
         }
@@ -67,6 +67,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.icon {
+  font-size: 25px;
+}
 
 </style>

@@ -10,6 +10,8 @@ import {
   SwipeItem
 } from 'vant'
 
+import './icons'
+
 Vue.config.productionTip = false
 
 Vue.use(Icon)
