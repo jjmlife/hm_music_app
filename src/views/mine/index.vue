@@ -1,19 +1,21 @@
 <template>
-  <div class="app-home">
-
+  <div class="mine">
+     mine
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'Home',
-  components: {
+  mounted() {
+
+  },
+  methods: {
     
   }
 }
 </script>
 
 <style scoped lang="scss">
+
 
 </style>
