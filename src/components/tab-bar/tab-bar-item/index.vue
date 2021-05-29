@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+$iconSize:28px;
 .icon-normal {
   font-size: 20px;
 }
@@ -60,8 +61,8 @@ export default {
   flex: 1;
 
   .icon-bg {
-    height: 24px;
-    width: 24px;
+    height: $iconSize;
+    width: $iconSize;
     margin: 2px auto;
     border-radius: 50%;
     background-color: white;
