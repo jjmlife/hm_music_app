@@ -1,7 +1,17 @@
 <template>
   <div class="recommand">
       <navigation @click-left="onClickLeft" @click-right="onClickRight"></navigation>
-      <div class="btn">jmm</div>
+      <!-- top-banner -->
+
+      <!-- menu -->
+
+      <!-- song recommand list -->
+
+      <!-- music rank -->
+
+      <!-- cloud tv -->
+
+      <!-- brandcast   -->
   </div>
 </template>
 
@@ -27,11 +37,7 @@ export default {
 
 <style scoped lang="scss">
 .recommand {
-  .btn {
-    height: 10rem;
-    width: 7.5rem;
-    background-color: skyblue;
-  }
+ 
 }
 
 </style>
