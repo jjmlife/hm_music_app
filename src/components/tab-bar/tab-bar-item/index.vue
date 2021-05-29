@@ -1,50 +1,81 @@
 <template>
   <div class="tab-bar-item" @click="itemClick">
-      <div class="item-icon" v-show="!isActive"><slot name="icon"></slot></div>
-      <div class="item-active-icon" v-show="isActive"><slot name="active-icon"></slot></div>
-      <div class="item-text"><slot name="text"></slot></div>
+    <div class="icon-bg" :class="isActive ? 'active' : ''">
+      <svg-icon
+        :icon-class="iconClass"
+        :class-name="isActive ? 'icon-select' : 'icon-normal'"
+      />
+    </div>
+    <div class="item-text" :style="{ color: isActive ? '#ff5a4c' : '#aaaaaa' }">
+      <slot name="text"></slot>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name: 'TabBarItem',
-    props: {
-        link: {
-            type: String,
-            required: true
-        }
+  name: "TabBarItem",
+  props: {
+    link: {
+      type: String,
+      required: true,
     },
-    computed: {
-        isActive: {
-            get() {
-                return false;
-            }
-        }
+    icon: {
+      type: String,
+      required: true,
     },
-    methods: {
-        itemClick() {
-            if(this.link === this.$route.path) return;
-            this.$router.replace(this.link)
-        }
-    }
-}
+    iconSelect: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    isActive: {
+      get() {
+        return this.$route.path.indexOf(this.link) !== -1;
+      },
+    },
+    iconClass() {
+      return this.isActive ? this.iconSelect : this.icon;
+    },
+  },
+  methods: {
+    itemClick() {
+      if (this.link === this.$route.path) return;
+      this.$router.replace(this.link);
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">
-.tab-bar-item {
-    flex:1;
+.icon-normal {
+  font-size: 20px;
+}
+.icon-select {
+  font-size: 12px;
 }
 
-.item-icon {
-    width: 20px;
-    height: 20px;
+.tab-bar-item {
+  flex: 1;
+
+  .icon-bg {
+    height: 24px;
+    width: 24px;
+    margin: 2px auto;
+    border-radius: 50%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .active {
+    background-color: #ff5a4c;
+  }
 }
 
 .item-text {
-    font-size: 12px;
-    margin-top: 3px;
-    color: #333;
+  font-size: 10px !important;
+  margin-top: 3px;
 }
-
 </style>

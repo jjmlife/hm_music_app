@@ -1,12 +1,10 @@
 <template>
   <div class="main-tabar">
       <tab-bar>
-        <tab-bar-item v-for="(item) in tabbarData" :key="item.link" :link="item.link">
-          <div slot="text">{{item.title}}</div>
-          <template v-slot:icon>
-                <svg-icon :icon-class="item.icon" class-name="icon" />
+        <tab-bar-item v-for="(item) in tabbarData" :key="item.link" :link="item.link" :icon="item.icon" :iconSelect="item.activeIcon">
+         <template v-slot:text>
+                {{item.title}}
           </template>
-          <div slot="active-icon">{{item.activeIcon}}</div>
         </tab-bar-item>
       </tab-bar>
   </div>
@@ -27,31 +25,31 @@ export default {
         {
             title: '发现',
             icon: 'logo',
-            activeIcon: '',
+            activeIcon: 'logo_select',
             link: '/recommand'
         },
         {
             title: '播客',
             icon: 'boke',
-            activeIcon: '',
+            activeIcon: 'boke_select',
             link: '/podcast'
         },
         {
             title: '我的',
             icon: 'music',
-            activeIcon: '',
+            activeIcon: 'music_select',
             link: '/mine'
         },
         {
             title: 'k歌',
             icon: 'ksong',
-            activeIcon: '',
+            activeIcon: 'ksong_select',
             link: '/ksong'
         },
         {
             title: '云村',
             icon: 'pepole',
-            activeIcon: '',
+            activeIcon: 'pepole_select',
             link: '/cloud'
         }
       ]
@@ -67,8 +65,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.icon {
-  font-size: 25px;
-}
 
 </style>

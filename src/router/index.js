@@ -32,6 +32,11 @@ const routes = [
     path: '/cloud',
     name: 'Cloud',
     component: () => import('@/views/cloud/index.vue')
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('@/views/test/index.vue')
   }
 ]
 
