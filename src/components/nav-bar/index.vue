@@ -17,9 +17,15 @@ export default {
 // 44px
 $itemWidth: 44px;
 .nav-bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top:0;
+    z-index: 800;
     height: 44px;
     line-height: 44px;
-    margin: 0 16px;
+    padding: 0 16px;
+    background-color: #ffffff;
     display: flex;
     justify-content: space-between;
     &-left {

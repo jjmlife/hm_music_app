@@ -8,7 +8,8 @@ import {
   Swipe,
   SwipeCell,
   SwipeItem,
-  Search
+  Search,
+  Image
 } from 'vant'
 
 import './icons'
@@ -22,6 +23,7 @@ Vue.use(Swipe)
 Vue.use(SwipeCell)
 Vue.use(SwipeItem)
 Vue.use(Search)
+Vue.use(Image)
 
 new Vue({
   router,
