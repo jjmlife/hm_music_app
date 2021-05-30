@@ -7,10 +7,13 @@ import {
   Button,
   Swipe,
   SwipeCell,
-  SwipeItem
+  SwipeItem,
+  Search,
+  Image
 } from 'vant'
 
 import './icons'
+import '@/assets/styles/normal.css'
 
 Vue.config.productionTip = false
 
@@ -19,6 +22,8 @@ Vue.use(Button)
 Vue.use(Swipe)
 Vue.use(SwipeCell)
 Vue.use(SwipeItem)
+Vue.use(Search)
+Vue.use(Image)
 
 new Vue({
   router,
