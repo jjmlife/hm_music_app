@@ -7,7 +7,11 @@
         <!-- menu -->
 
         <!-- song recommand list -->
-
+        <item-list :items="recoSongs" title="推介歌单">
+          <template v-slot:right-button>
+              <arrow-button title="更多"></arrow-button>
+          </template>
+        </item-list>
         <!-- music rank -->
 
         <!-- cloud tv -->
@@ -20,17 +24,23 @@
 <script>
 import Navigation from './components/navigation'
 import TopBanner from './components/top-banner'
+import ItemList from '@/components/app/item-list'
+import ArrowButton from '@/components/app/arrow-button'
 import {
-  reco_bannerSwiper
+  reco_bannerSwiper,
+  reco_recSongList
 } from '@/network/api/recommand'
 export default {
   components: {
     Navigation,
-    TopBanner
+    TopBanner,
+    ItemList,
+    ArrowButton
   },
   data() {
     return {
-      banners:[]
+      banners:[],
+      recoSongs: [],
     }
   },
   mounted() {
@@ -47,9 +57,17 @@ export default {
       reco_bannerSwiper().then(
         res => {
           if(!res.code === 200)  return;
-          this.banners = res.banners;
+          this.banners = res.banners;coverImgUrl
         }
       ).catch(err => {
+
+      })
+
+      reco_recSongList().then(res => {
+          if(!res.code === 200)  return;
+          this.recoSongs = res.playlists
+      }).catch(err => {
+
       })
     }
   }

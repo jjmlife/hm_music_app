@@ -24,7 +24,7 @@ $itemWidth: 44px;
     z-index: 800;
     height: 44px;
     line-height: 44px;
-    padding: 0 16px;
+    padding: 0 .32rem;
     background-color: #ffffff;
     display: flex;
     justify-content: space-between;
