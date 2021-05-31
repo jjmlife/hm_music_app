@@ -22,3 +22,27 @@ export const reco_bannerSwiper = function() {
     return ajax.doGet(api.reco_bannerSwiper)
 }
 
+export const reco_recSongList = function() {
+    return ajax.doGet(api.reco_recSongList)
+}
+
+export const reco_highquality = function() {
+    return ajax.doGet(api.reco_highquality)
+}
+
+export const reco_catlist = function() {
+    return ajax.doGet(api.reco_catlist)
+}
+
+export const reco_hot = function() {
+    return ajax.doGet(api.reco_hot)
+}
+
+export const reco_topList = function() {
+    return ajax.doGet(api.reco_topList)
+}
+
+export const reco_idxList = function() {
+    return ajax.doGet(api.reco_idxList)
+}
+
