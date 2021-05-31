@@ -5,7 +5,7 @@
         <!-- top-banner -->
         <top-banner :images="banners"></top-banner>
         <!-- menu -->
-
+        <menu-list></menu-list>
         <!-- song recommand list -->
 
         <!-- music rank -->
@@ -20,13 +20,15 @@
 <script>
 import Navigation from './components/navigation'
 import TopBanner from './components/top-banner'
+import MenuList from './components/menu-list'
 import {
   reco_bannerSwiper
 } from '@/network/api/recommand'
 export default {
   components: {
     Navigation,
-    TopBanner
+    TopBanner,
+    MenuList
   },
   data() {
     return {
@@ -51,6 +53,8 @@ export default {
         }
       ).catch(err => {
       })
+
+
     }
   }
 }
