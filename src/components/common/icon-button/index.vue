@@ -1,6 +1,8 @@
 <template>
   <div class="icon-button">
-    <svg-icon :icon-class="icon" class-name="icon"></svg-icon>
+    <div class="icon-bg">
+      <svg-icon :icon-class="icon" class-name="icon"></svg-icon>    
+    </div>
     <div class="title">{{ title }}</div>
   </div>
 </template>
@@ -22,14 +24,27 @@ export default {
 
 <style scoped lang="scss">
 .icon-button {
-  height: 1rem;
-  width: 0.8rem;
+  height: 1.5rem;
+  width: 1rem;
+  .icon-bg {
+    height: 1rem;
+    width: 1rem;
+    text-align: center;
+    line-height: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(100, 0, 0, 0.1);
+    border-radius: 50%;
+  }
   .title {
+    margin-top: .2rem;
     color: black;
-    font-size: 0.12rem;
+    font-size: 0.24rem;
+    text-align: center;
   }
   .icon {
-    font-size: 0.6rem;
+    font-size: .6rem;
   }
 }
 </style>

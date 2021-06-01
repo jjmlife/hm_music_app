@@ -5,7 +5,7 @@
         <!-- top-banner -->
         <top-banner :images="banners"></top-banner>
         <!-- menu -->
-        <menu-list></menu-list>
+        <menu-list @click="menuItemClick"></menu-list>
         <!-- song recommand list -->
         <item-list :items="recoSongs" title="推介歌单">
           <template v-slot:right-button>
@@ -54,6 +54,9 @@ export default {
     },
     onClickRight() {
       console.log('left right');
+    },
+    menuItemClick(item) {
+        console.log(item);
     },
     getData() {
       reco_bannerSwiper().then(
