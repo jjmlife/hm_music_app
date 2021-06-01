@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-button">
+  <div class="icon-button" @click="buttonClick">
     <div class="icon-bg">
       <svg-icon :icon-class="icon" class-name="icon"></svg-icon>    
     </div>
@@ -10,6 +10,10 @@
 <script>
 export default {
   props: {
+    index: {
+      type: Number,
+      default: 0
+    },
     icon: {
       type: String,
       required: true,
@@ -19,6 +23,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    buttonClick() {
+      this.$emit('item-click',this.index)
+    }
+  }
 };
 </script>
 

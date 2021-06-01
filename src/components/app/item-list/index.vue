@@ -4,8 +4,8 @@
           <div class="title">{{title}}</div>
           <div class="right"><slot name="right-button" /></div>
       </div>
-      <div class="list">
-          <item-cell v-for="(item) in items" :key="item.title" :title="item.name" :imageUrl="item.coverImgUrl"></item-cell>
+      <div class="list clear-scrollbar">
+          <item-cell class="cell" v-for="(item) in items" :key="item.title" :title="item.name" :imageUrl="item.coverImgUrl"></item-cell>
       </div>
   </div>
 </template>
@@ -25,6 +25,12 @@ export default {
         type: String,
         required: true
       }
+    },
+    methods: {
+      itemClick(index) {
+        console.log(index);
+
+      }
     }
 }
 </script>
@@ -32,6 +38,7 @@ export default {
 <style scoped  lang="scss">
 .item-list {
   margin-top: 15px;
+  
   .top {
     display: flex;
     justify-content: space-between;
@@ -43,7 +50,15 @@ export default {
     }
   }
   .list{
-    white-space: nowrap;
+    padding: 0 .32rem;
+    display: flex;
+    overflow-x: scroll;
+    .cell {
+      margin: 0 .1rem;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
   }
 }
 

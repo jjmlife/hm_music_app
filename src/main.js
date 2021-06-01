@@ -14,6 +14,8 @@ import {
 
 import './icons'
 import '@/assets/styles/normal.css'
+import '@/assets/styles/global.scss'
+import NavBar from '@/components/common/nav-bar/index.js'
 
 Vue.config.productionTip = false
 
@@ -24,6 +26,8 @@ Vue.use(SwipeCell)
 Vue.use(SwipeItem)
 Vue.use(Search)
 Vue.use(Image)
+
+Vue.use(NavBar)
 
 new Vue({
   router,

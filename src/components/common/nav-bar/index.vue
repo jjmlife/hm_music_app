@@ -1,14 +1,25 @@
 <template>
   <div class="nav-bar">
-      <div class="nav-bar-left"><slot name="nav-left"></slot></div>
+      <div class="nav-bar-left" @click="leftClick"><slot name="nav-left"></slot></div>
       <div class="nav-bar-center"><slot name="nav-center"></slot></div>
       <div class="nav-bar-right"><slot name="nav-right"></slot></div>
   </div>
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
+    name: 'NavBar',
+    computed: {
+        ...mapGetters([
+            'loginPanelShow'
+        ])
+    },
     methods: {
+        leftClick() {
+            let ret = !this.loginPanelShow
+            this.$store.dispatch('app/toggleLoginPanel',ret)
+        }
     }
 }
 </script>
@@ -21,7 +32,7 @@ $itemWidth: 44px;
     left: 0;
     right: 0;
     top:0;
-    z-index: 800;
+    z-index: 199;
     height: 44px;
     line-height: 44px;
     padding: 0 .32rem;

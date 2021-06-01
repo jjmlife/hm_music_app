@@ -2,7 +2,7 @@
   <div class="navigation">
       <nav-bar>
           <template v-slot:nav-left >
-              <span @click="leftClick"><svg-icon icon-class="navbar_left" class-name="bar-icon"></svg-icon></span>
+              <svg-icon icon-class="navbar_left" class-name="bar-icon"></svg-icon>
           </template>
           <template v-slot:nav-center>
              <div>发现</div>
@@ -22,9 +22,6 @@ export default {
         NavBar
     },
     methods: {
-        leftClick() {
-            this.$emit('click-left')
-        },
         rightClick() {
             this.$emit('click-right')
         }

@@ -23,15 +23,16 @@ export default {
 
 <style scoped lang="scss">
 .arrow-wrapper {
-    background-color: rgba(100, 100, 100, .3);
-    padding: 2px 20px;
     font-size: 12px;
-    line-height: 25px;
-    height: 24px;
-    border-radius: 12px;
-    height: 24px;
+    border: 1px solid rgba(100, 100, 100, .3);
+    border-radius: .2rem;
+    padding: 0 .2rem;
+    height: .4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     .arrow {
-      margin-left: -4px;
+      margin-left: 2px;
       display: inline-block;
       width: 6px;
       height: 6px;

@@ -1,0 +1,14 @@
+
+.clearfix {
+    display: block;
+    &::after {
+        content: ' ';
+        clear: both;
+    }
+}
+
+.clear-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

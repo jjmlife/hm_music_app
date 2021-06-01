@@ -1,5 +1,5 @@
 <template>
-  <div class="item-cell">
+  <div class="item-cell" @click="itemClick">
      <div class="img-box">
        <div class="desc">
          <svg-icon icon-class="" class-name=""></svg-icon>
@@ -33,24 +33,33 @@ export default {
       playCount: {
         type:String
       }
+    },
+    methods: {
+      itemClick() {
+        console.log('clic');
+      }
     }
 }
 </script>
 
 <style scoped lang="scss">
 .item-cell {
+  width: 2rem;
   .img {
-    border-radius: 5px;
+    border-radius: 8px;
     object-fit: cover;
+    width: 2rem;
+    height: 2rem;
   }
   .title {
-    text-align: center;
     font-size: 12px;
     line-height: 1.2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    word-break: break-all;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2; 
   }
 }
 

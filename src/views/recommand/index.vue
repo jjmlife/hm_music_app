@@ -1,6 +1,6 @@
 <template>
   <div class="recommand">
-      <navigation @click-left="onClickLeft" @click-right="onClickRight"></navigation>
+      <navigation @click-right="onClickRight"></navigation>
       <div class="content">
         <!-- top-banner -->
         <top-banner :images="banners"></top-banner>
@@ -45,13 +45,13 @@ export default {
       recoSongs: [],
     }
   },
+  computed: {
+
+  },
   mounted() {
     this.getData()
   },
   methods: {
-    onClickLeft() {
-      console.log('left click');
-    },
     onClickRight() {
       console.log('left right');
     },
