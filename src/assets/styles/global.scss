@@ -1,3 +1,11 @@
+// 主题色
+$bgcolor: #dd001b;
+// 图片圆角
+$imgBorderRadius: 0.11rem;
+// 图标宽度
+$iconWidth: 1rem;
+// 图标下方文本大小
+$iconText: 0.24rem;
 
 .clearfix {
     display: block;
@@ -12,3 +20,40 @@
     display: none;
   }
 }
+
+.mask {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+// 单行...
+.textEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 多行...
+.multiEllipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+
+// 粘性布局
+.titleFixed {
+  position: sticky;
+  width: 100vw;
+  top: 0;
+  background-color: #fff;
+  z-index: 199;
+}
+

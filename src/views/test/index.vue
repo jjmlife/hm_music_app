@@ -1,60 +1,90 @@
 <template>
-  <div class="test">
-    <div id="demo">
-      Push this button to do something you shouldn't be doing:<br />
-
-      <div :class="{ shake: noActivated }">
-        <button @click="noActivated = true">Click me</button>
-        <span v-if="noActivated">Oh no!</span>
+  <div >
+    <button @click="showClick">button</button>
+    <transition name="mask">
+      <div
+        class="mask"
+        @click.self="bgClick"
+         v-show="loginPanelShow"
+      ></div>
+    </transition>
+    <transition name="panel" mode="out-in">
+      <div class="panel" v-show="loginPanelShow">
+        <div class="header">login</div>
+        <div class="vip-card"></div>
+        <div class="content"></div>
+        <div class="footer"></div>
       </div>
-    </div>
-
+    </transition>
   </div>
 </template>
 
 <script>
-
+import { mapGetters } from "vuex";
 export default {
-    data() {
-      return {
-        noActivated: false
-      }
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters(["loginPanelShow"]),
+  },
+  mounted() {
+    console.log(this.loginPanelShow);
+  },
+  methods: {
+    showClick() {
+      this.$store.dispatch("app/toggleLoginPanel");
     },
-    methods: {
-        
-    }
-}
+    bgClick() {
+      this.$store.dispatch("app/toggleLoginPanel");
+    },
+  },
+};
 </script>
 
-<style scoped lang="scss">
-.shake {
-    animation: shake .82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
- transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
-  perspective: 1000px;
+<style scoped  lang="scss">
+
+.mask {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-@keyframes shake {
- 10%,
-  90% {
-    transform: translate3d(-1px, 0, 0);
-  }
-
-  20%,
-  80% {
-    transform: translate3d(2px, 0, 0);
-  }
-
-  30%,
-  50%,
-  70% {
-    transform: translate3d(-4px, 0, 0);
-  }
-
-  40%,
-  60% {
-    transform: translate3d(4px, 0, 0);
-  }
+.panel {
+  background-color: skyblue;
+  width: 6.5rem;
+  height: 100vh;
+  top: 0;
+  z-index: 100;
 }
+
+.mask-enter-from,
+.mask-leave-to {
+  opacity: 0;
+}
+
+.mask-enter-active, 
+.mask-leave-active {
+  transition: opacity .25s ease-out;
+}
+
+.panel-enter-enter,
+.panel-leave-to{
+   transform: translateX(-6.5rem);
+}
+
+.panel-enter-active,
+.panel-leave-active {
+   transition: transform  .3s linear ;
+}
+
+
+
+
+
 
 </style>

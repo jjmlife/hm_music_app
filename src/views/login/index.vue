@@ -1,21 +1,21 @@
 <template>
-  <div >
-    <transition name="mask">
+<div >
+    <transition name="mask" mode="out-in">
       <div
-        class="login-mask"
+        class="mask"
         @click.self="bgClick"
          v-show="loginPanelShow"
       ></div>
     </transition>
-    <transition name="panel">
-      <div class="login-panel" v-if="loginPanelShow">
+    <transition name="panel" mode="out-in">
+      <div class="panel" v-show="loginPanelShow">
         <div class="header">login</div>
         <div class="vip-card"></div>
         <div class="content"></div>
         <div class="footer"></div>
       </div>
     </transition>
-  </div>
+</div>
 </template>
 
 <script>
@@ -39,23 +39,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.login-mask {
-  z-index: 999;
+.mask {
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0;
-  background-color: rgba(100, 100, 100, .5);
+  right:0;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-.login-panel {
+.panel {
   background-color: skyblue;
   width: 6.5rem;
-  top:0;
   bottom: 0;
+  top: 0;
   position: fixed;
-  z-index: 1000;
+  z-index: 1200;
 }
 
 .mask-enter-from,
@@ -65,26 +65,18 @@ export default {
 
 .mask-enter-active, 
 .mask-leave-active {
-  transition: opacity .25s ease-out;
+  transition: opacity .25s;
 }
 
-.panel-enter-from,
+.panel-enter,
 .panel-leave-to{
-   left: -6.5rem;
-}
-
-.panel-enter-to,
-.panel-leave-from
-  {
-  left: 0;
+   transform: translateX(-6.5rem);
 }
 
 .panel-enter-active,
 .panel-leave-active {
-   transition: left .35s ease-out;
+   transition: transform  .3s;
 }
-
-
 
 
 

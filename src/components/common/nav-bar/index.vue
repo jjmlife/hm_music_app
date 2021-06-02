@@ -7,18 +7,11 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
 export default {
     name: 'NavBar',
-    computed: {
-        ...mapGetters([
-            'loginPanelShow'
-        ])
-    },
     methods: {
         leftClick() {
-            let ret = !this.loginPanelShow
-            this.$store.dispatch('app/toggleLoginPanel',ret)
+            this.$store.dispatch('app/showLoginPanel')
         }
     }
 }

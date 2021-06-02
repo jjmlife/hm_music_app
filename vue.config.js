@@ -1,12 +1,20 @@
 'use strict'
 const path = require('path')
 function resolve(dir) {
-  return path.join(__dirname, dir)
+    return path.join(__dirname, dir)
 }
 
 module.exports = {
     lintOnSave: false,
-
+    configureWebpack: {
+        resolve: {
+            extensions: ['.js', '.vue', '.json'],
+            alias: {
+                '@': resolve('src'),
+                'styles': resolve('src/assets/styles'),
+            }
+        }
+    },
     chainWebpack(config) {
         // set svg-sprite-loader
         config.module
