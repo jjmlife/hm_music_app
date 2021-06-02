@@ -9,7 +9,8 @@ import {
   SwipeCell,
   SwipeItem,
   Search,
-  Image
+  Image,
+  Switch
 } from 'vant'
 
 import './icons'
@@ -26,6 +27,7 @@ Vue.use(SwipeCell)
 Vue.use(SwipeItem)
 Vue.use(Search)
 Vue.use(Image)
+Vue.use(Switch)
 
 Vue.use(NavBar)
 

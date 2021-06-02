@@ -9,10 +9,12 @@
     </transition>
     <transition name="panel" mode="out-in">
       <div class="panel" v-show="loginPanelShow">
-        <div class="header">login</div>
-        <div class="vip-card"></div>
-        <div class="content"></div>
-        <div class="footer"></div>
+          <login-header></login-header>
+          <vip-card></vip-card>
+          <list :dataList="cellData"></list>
+          <div class="footer" @click="closeClick">
+              关闭云音乐
+          </div>
       </div>
     </transition>
 </div>
@@ -20,20 +22,42 @@
 
 <script>
 import { mapGetters } from "vuex";
+import LoginHeader from './components/login-header/index.vue'
+import VipCard from './components/vip-card'
+import List from './components/list'
+import cellItems from '@/network/appInfo/login-cell-item.js'
 export default {
+  components: {
+    LoginHeader,
+    VipCard,
+    List
+  },
   data() {
-    return {};
+    return {
+    };
   },
   computed: {
     ...mapGetters(["loginPanelShow"]),
   },
+  created() {
+    this.cellData = cellItems;
+  },
   mounted() {
-    console.log(this.loginPanelShow);
+    
   },
   methods: {
     bgClick() {
-      this.$store.dispatch("app/toggleLoginPanel", !this.loginPanelShow);
+      this.$store.dispatch("app/hiddenLoginPanel");
     },
+    touchStart() {
+      console.log('touchStart');
+    },
+    touchEnd() {
+      console.log('touchEnd');
+    },
+    closeClick() {
+      this.bgClick()
+    }
   },
 };
 </script>
@@ -46,17 +70,31 @@ export default {
   left: 0;
   bottom: 0;
   right:0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .panel {
-  background-color: skyblue;
+  background-color: rgba(230, 230, 230, 1);
   width: 6.5rem;
   bottom: 0;
   top: 0;
   position: fixed;
   z-index: 1200;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  .footer {
+    text-align: center;
+    height: .8rem;
+    margin: .2rem;
+    font-size: .3rem;
+    color: #ff5a4c;
+    background-color: #fff;
+    line-height: .8rem;
+    border-radius: 8px;
+  }
 }
+
+
 
 .mask-enter-from,
 .mask-leave-to {
@@ -77,8 +115,6 @@ export default {
 .panel-leave-active {
    transition: transform  .3s;
 }
-
-
 
 
 </style>
