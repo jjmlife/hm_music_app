@@ -46,3 +46,29 @@ export const reco_idxList = function() {
     return ajax.doGet(api.reco_idxList)
 }
 
+export const reco_albumDetail = function(params) {
+    return  new Promise((resolve,reject) => {
+        ajax.doGet(api.reco_albumDetail,params).then(res => {
+              let playlist = res.playlist;
+             let list = playlist.tracks.map((val) => {
+                let ar = val.ar[0].name;
+                let obj = {
+                  name: val.name,
+                  author:ar +' - ' + val.al.name,
+                  id: val.id,
+                };
+                return obj;
+              });
+              let ef_obj = {
+                list: list,
+                coverImgUrl: playlist.coverImgUrl,
+                name: playlist.name,
+                description: playlist.description
+              }
+              resolve(ef_obj)
+        }, err => {
+            reject(err)
+        })
+    }) 
+}
+

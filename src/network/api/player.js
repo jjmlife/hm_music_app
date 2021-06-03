@@ -1,3 +1,5 @@
+import ajax from '../index'
+
 const api = {
     player_songUrl :  '/song/url' ,// 获取歌曲url
     player_checkSong :  '/check/music' ,// 查看歌曲是否可用
@@ -10,6 +12,29 @@ const api = {
     player_playlistDelete: '/playlist/delete' // 删除歌单
 }
 
-export default {
-    
+export const player_songUrl = function(id) {
+    return ajax.doPost(api.player_songUrl,{id: id})
 }
+
+export const player_checkSong = function(id) {
+    return ajax.doPost(api.player_checkSong,{id: id})
+}
+
+export const player_songLyric = function(id) {
+    return ajax.doPost(api.player_songLyric,{id: id})
+}
+
+export const player_heartMode = function(id) {
+    return ajax.doPost(api.player_heartMode,{id: id})
+}
+
+export const player_likeMusicList = function(id) {
+    return ajax.doPost(api.player_likeMusicList,{id: id})
+}
+
+export const player_likeMusic = function(id) {
+    return ajax.doPost(api.player_likeMusic,{id: id})
+}
+
+
+

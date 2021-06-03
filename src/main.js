@@ -10,7 +10,8 @@ import {
   SwipeItem,
   Search,
   Image,
-  Switch
+  Switch,
+  Sticky
 } from 'vant'
 
 import './icons'
@@ -28,6 +29,7 @@ Vue.use(SwipeItem)
 Vue.use(Search)
 Vue.use(Image)
 Vue.use(Switch)
+Vue.use(Sticky)
 
 Vue.use(NavBar)
 

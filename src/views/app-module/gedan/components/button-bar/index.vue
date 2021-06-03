@@ -24,14 +24,15 @@ export default {
     justify-content: center;
     align-items: center;
     border-radius: .6rem;
-    box-shadow: 0 2px 6px #888;
+    box-shadow: 1px 2px 6px #aaa;
     padding: 0 .6rem;
     .btn {
         height: .8rem;
-        flex: 1;
+        width: calc(100%/3);
     }
     .divide {
-
+        background-color: #aaa;
+        height: 100%;
     }
 }
 

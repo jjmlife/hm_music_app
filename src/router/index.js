@@ -102,6 +102,14 @@ const routes = [
     component: () => import('@/views/app-module/gedan/index.vue')
   },
   {
+    path: '/player',
+    name: 'player',
+    meta: {
+      tabbar: false
+    },
+    component: () => import('@/views/player/index.vue')
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('@/views/test/index.vue')

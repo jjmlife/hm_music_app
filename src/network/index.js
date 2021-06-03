@@ -6,11 +6,7 @@ let baseURL =  'http://47.105.178.171:3000'
 
 axios.interceptors.response.use(response  => {
     const res = response.data
-    if(res.code !== 200) {
-        return Promise.reject(res)
-    }else {
-        return res
-    }
+    return res
 }, err => {
     return Promise.reject(err)
 })

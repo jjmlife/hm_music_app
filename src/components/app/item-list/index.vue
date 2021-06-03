@@ -5,7 +5,9 @@
           <div class="right"><slot name="right-button" /></div>
       </div>
       <div class="list clear-scrollbar">
-          <item-cell class="cell" v-for="(item) in items" :key="item.title" :title="item.name" :imageUrl="item.coverImgUrl"></item-cell>
+          <item-cell class="cell" v-for="(item) in items" :key="item.title" :title="item.name" :imageUrl="item.coverImgUrl"
+            :id="item.id"
+          ></item-cell>
       </div>
   </div>
 </template>
@@ -27,10 +29,7 @@ export default {
       }
     },
     methods: {
-      itemClick(index) {
-        console.log(index);
-
-      }
+    
     }
 }
 </script>

@@ -1,7 +1,6 @@
-let type = 'jjm'
-let age = 20
-const obj = {
-    type,
-    age
+let obj = {
+    list: [1,2],
+    name: 'jjm'
 }
-console.log(obj);
+let {list: arr} = obj
+console.log(arr);

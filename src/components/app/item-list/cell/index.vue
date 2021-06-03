@@ -32,11 +32,15 @@ export default {
       },
       playCount: {
         type:String
+      },
+      id: {
+        type: Number,
+        required: true
       }
     },
     methods: {
       itemClick() {
-        console.log('clic');
+          this.$router.push({path: '/gedan', query:{id: this.id}})
       }
     }
 }
