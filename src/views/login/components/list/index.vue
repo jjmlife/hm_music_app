@@ -19,7 +19,7 @@ export default {
         CellGroup
     },
     mounted() {
-        console.log(this.dataList);
+
     }
 }
 </script>

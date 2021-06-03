@@ -94,6 +94,14 @@ const routes = [
     component: () => import('@/views/app-module/song-rank/index.vue')
   },
   {
+    path: '/gedan',
+    name: 'gedan',
+    meta: {
+      tabbar: false
+    },
+    component: () => import('@/views/app-module/gedan/index.vue')
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('@/views/test/index.vue')
