@@ -53,7 +53,8 @@ export default {
   },
   methods: {
     onClickRight() {
-      console.log('left right');
+      // console.log('left right');
+      this.$store.dispatch('player/togglePlayerShow',true)
     },
     menuItemClick(item) {
         console.log(item);

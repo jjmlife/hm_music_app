@@ -11,7 +11,8 @@ import {
   Search,
   Image,
   Switch,
-  Sticky
+  Sticky,
+  Slider
 } from 'vant'
 
 import './icons'
@@ -30,6 +31,7 @@ Vue.use(Search)
 Vue.use(Image)
 Vue.use(Switch)
 Vue.use(Sticky)
+Vue.use(Slider)
 
 Vue.use(NavBar)
 
